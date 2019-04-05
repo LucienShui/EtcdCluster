@@ -1,0 +1,21 @@
+version: '3'
+services:
+  etcd: 
+    image: jpillora/dnsmasq
+    container_name: dnsmasq
+
+    ports:
+      - 53:53/udp
+      - 8080:8080
+
+    volumes:
+      - ./conf/dnsmasq.conf:/etc/dnsmasq.conf
+      - ./conf/hosts:/etc/dnsmasq.hosts
+      - ./conf/resolv.conf:/etc/dnsmasq.resolv.conf
+
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"
+
+    restart: always

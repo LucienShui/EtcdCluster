@@ -1,0 +1,29 @@
+version: '3'
+services:
+  etcd: 
+    image: quay.io/coreos/etcd
+    container_name: etcd${ID}
+
+    command:
+      etcd
+      -name etcd${ID}
+      -initial-advertise-peer-urls http://0.0.0.0:${PORT_1}
+      -listen-peer-urls http://0.0.0.0:${PORT_1}
+      -listen-client-urls http://0.0.0.0:${PORT_0}
+      -advertise-client-urls http://0.0.0.0:${PORT_0}
+      -initial-cluster-token etcd-cluster
+      -discovery-srv seven-etcd-dns.oa.com
+      -initial-cluster-state new
+      -data-dir /etc/data
+
+    ports:
+      - ${PORT_0}:${PORT_0}
+      - ${PORT_1}:${PORT_1}
+
+    volumes:
+      - ./data:/etc/data
+
+    dns:
+      - ${DNS}
+
+    restart: always
