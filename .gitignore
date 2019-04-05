@@ -1,3 +1,4 @@
 dnsmasq/conf/*.conf
 dnsmasq/conf/hosts
 etcd/data
+.env

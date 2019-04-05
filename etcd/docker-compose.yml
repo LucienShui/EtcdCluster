@@ -7,12 +7,12 @@ services:
     command:
       etcd
       -name etcd${ID}
-      -initial-advertise-peer-urls http://0.0.0.0:${PORT_1}
+      -initial-advertise-peer-urls http://etcd${ID}.${WEB_ADDR}:${PORT_1}
       -listen-peer-urls http://0.0.0.0:${PORT_1}
       -listen-client-urls http://0.0.0.0:${PORT_0}
       -advertise-client-urls http://0.0.0.0:${PORT_0}
       -initial-cluster-token etcd-cluster
-      -discovery-srv seven-etcd-dns.oa.com
+      -discovery-srv ${WEB_ADDR}
       -initial-cluster-state new
       -data-dir /etc/data
 
