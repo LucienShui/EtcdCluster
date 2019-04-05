@@ -1,2 +1,3 @@
-dnsmasq/conf/*
-etcd/data/*
+dnsmasq/conf/*.conf
+dnsmasq/conf/hosts
+etcd/data
