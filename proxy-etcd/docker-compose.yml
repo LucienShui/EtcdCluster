@@ -1,0 +1,24 @@
+version: '3'
+services:
+  etcd: 
+    image: quay.io/coreos/etcd
+    container_name: etcd${ID}
+
+    command:
+      etcd
+      -proxy on
+      -listen-client-urls http://0.0.0.0:${PORT_0}
+      -discovery-srv ${WEB_ADDR}
+      -enable-pprof
+      -data-dir /etc/data
+
+    ports:
+      - ${PORT_0}:${PORT_0}
+
+    volumes:
+      - ./data:/etc/data
+
+    dns:
+      - ${DNS}
+
+    restart: always
