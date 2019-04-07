@@ -1,7 +1,5 @@
-dnsmasq/conf/*.conf
-dnsmasq/conf/hosts
-etcd/data
-etcd/.env
-proxy/data
+dnsmasq/conf
+data
+.env
 a
 bin
