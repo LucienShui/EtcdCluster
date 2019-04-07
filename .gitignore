@@ -4,3 +4,4 @@ etcd/data
 etcd/.env
 proxy/data
 a
+bin
