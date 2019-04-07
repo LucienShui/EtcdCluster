@@ -2,7 +2,7 @@ version: '3'
 services:
   etcd: 
     image: quay.io/coreos/etcd
-    container_name: etcd${ID}
+    container_name: etcd_proxy${ID}
 
     command:
       etcd
