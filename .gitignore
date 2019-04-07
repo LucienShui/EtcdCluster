@@ -2,4 +2,5 @@ dnsmasq/conf/*.conf
 dnsmasq/conf/hosts
 etcd/data
 etcd/.env
+proxy/data
 a
