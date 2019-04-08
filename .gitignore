@@ -3,3 +3,5 @@ data
 .env
 a
 bin
+.idea
+cmake-build-*
