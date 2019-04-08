@@ -1,7 +1,9 @@
 dnsmasq/conf
 data
 .env
+.*
 a
 bin
 .idea
 cmake-build-*
+CMakeLists.txt
