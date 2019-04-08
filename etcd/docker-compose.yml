@@ -11,7 +11,7 @@ services:
       -listen-peer-urls http://0.0.0.0:${PORT_1}
       -listen-client-urls http://0.0.0.0:${PORT_0}
       -advertise-client-urls http://etcd${ID}.${WEB_ADDR}:${PORT_0}
-      -initial-cluster-token etcd-cluster
+      -initial-cluster-token ${ETCD_TOKEN}
       -discovery-srv ${WEB_ADDR}
       -initial-cluster-state ${STATE}
       -data-dir /etc/data
