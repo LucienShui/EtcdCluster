@@ -6,7 +6,7 @@ services:
 
     command:
       etcd
-      -name etcd${ID}
+      -name ${ETCD_NAME}
       -initial-advertise-peer-urls http://${LOCAL_IP}:${PORT_1}
       -listen-peer-urls http://0.0.0.0:${PORT_1}
       -listen-client-urls http://0.0.0.0:${PORT_0}
