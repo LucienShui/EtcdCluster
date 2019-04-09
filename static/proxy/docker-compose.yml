@@ -1,0 +1,21 @@
+version: '3'
+services:
+  etcd: 
+    image: quay.io/coreos/etcd
+    container_name: proxy${ID}
+
+    command:
+      etcd
+      -proxy on
+      -listen-client-urls http://0.0.0.0:${PORT_0}
+      -initial-cluster ${ETCD_INITIAL_CLUSTER}
+      -data-dir /etc/data
+
+    ports:
+      - ${PORT_0}:${PORT_0}
+      - ${PORT_1}:${PORT_1}
+
+    volumes:
+      - ${LOCAL_DATA_DIR}:/etc/data
+
+    restart: always
